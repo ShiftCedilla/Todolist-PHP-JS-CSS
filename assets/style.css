@@ -1,0 +1,236 @@
+/* ===============================
+   RESET DE BASE
+================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===============================
+   STYLE GLOBAL
+================================== */
+body {
+    background-color: #f2f2f2;
+    color: #333;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ===============================
+   HEADER
+================================== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 2.2rem;
+    color: #222;
+}
+
+.navBar {
+    display: flex;
+    gap: 10px;
+}
+
+/* ===============================
+   BOUTONS
+================================== */
+button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #2d89ef;
+    color: white;
+    font-weight: 600;
+    transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #1e5bbf;
+}
+
+/* Image de la poubelle */
+.poubelle {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+/* ===============================
+   VISIBILITÉ RESPONSIVE
+   -> Affiche le bouton texte "Eléments supprimés" à partir de 600px
+   -> Cache le bouton image à partir de 600px
+================================== */
+.delete {
+    display: none;
+}
+
+.imgDelete {
+    background: none;
+    padding: 6px;
+}
+
+/* Dès que l'écran est plus large que 600px */
+@media (min-width: 600px) {
+    .delete {
+        display: inline-block; /* Affiche le bouton texte */
+    }
+
+    .imgDelete {
+        display: none; /* Cache l'image */
+    }
+}
+
+/* ===============================
+   FORMULAIRE D'AJOUT DE TÂCHE
+================================== */
+.add-task-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.add-task-form h2 {
+    margin-bottom: 15px;
+}
+
+.add-task-form form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Champs texte et sélection */
+.add-task-form input[type="text"],
+.add-task-form select {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* ===============================
+   COLONNES DE TÂCHES
+================================== */
+.columns-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.column {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.column h3 {
+    margin-bottom: 15px;
+    color: #444;
+}
+
+/* Liste des tâches dans chaque colonne */
+.tasks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* ===============================
+   STYLES DES TÂCHES
+================================== */
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    border-left: 4px solid #ddd;
+    transition: all 0.2s ease;
+}
+
+.task-item:hover {
+    background-color: #e9ecef;
+}
+
+.task-item.completed {
+    opacity: 0.6;
+    background-color: #e8f5e8;
+    border-left-color: #28a745;
+}
+
+.task-item.completed .task-description {
+    text-decoration: line-through;
+    color: #6c757d;
+}
+
+.task-checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.task-description {
+    flex: 1;
+    font-size: 14px;
+    color: #333;
+}
+
+.task-date {
+    font-size: 12px;
+    color: #6c757d;
+    white-space: nowrap;
+}
+
+/* ===============================
+   COULEURS PAR PRIORITÉ
+================================== */
+.urgent-column {
+    border-top: 4px solid #dc3545;
+}
+
+.urgent-column h3 {
+    color: #dc3545;
+}
+
+.moins-urgent-column {
+    border-top: 4px solid #fd7e14;
+}
+
+.moins-urgent-column h3 {
+    color: #fd7e14;
+}
+
+.osef-column {
+    border-top: 4px solid #28a745;
+}
+
+.osef-column h3 {
+    color: #28a745;
+}
+
+/* ===============================
+   RESPONSIVE (3 colonnes côte à côte)
+   -> Active à partir de 768px
+================================== */
+@media (min-width: 768px) {
+    .columns-container {
+        flex-direction: row;
+    }
+} 
